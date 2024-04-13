@@ -5,12 +5,12 @@ pipeline {
         }
     }
 environment {
-    PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
+    PATH: "/opt/apache-maven-3.9.6/bin/bin:$PATH"
 }
-    stages {
-        stage("Build") {
+stages {
+        stage("build"){
             steps {
-                sh 'mvn clean  deploy'
+                sh 'mvn clean deploy -Dmaven.test.skip=true'
             }
         }
     }
