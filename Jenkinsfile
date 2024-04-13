@@ -6,9 +6,9 @@ pipeline {
     }
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                git branch: 'master', url: 'https://github.com/rajeshX0057/jenkin-repo.git'
+                sh 'mvn clean install deploy'
             }
         }
     }
