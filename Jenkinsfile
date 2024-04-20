@@ -4,11 +4,15 @@ pipeline {
             label 'maven'
         }
     }
-stages {
-        stage('clone the code') {
-            steps {
-                git branch: 'master', url: 'https://github.com/rajeshX0057/jenkin-repo.git'
+environment {
+    PATH: "/opt/apache-maven-3.9.6/bin/bin:$PATH"
+}
+    stages {
+         stage("build"){
+             steps {                 
+                 sh 'mvn clean deploy '
             }
         }
-    }
+    }   
 }
+
