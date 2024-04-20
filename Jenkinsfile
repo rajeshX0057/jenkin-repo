@@ -4,13 +4,10 @@ pipeline {
             label 'maven'
         }
     }
-environment {
-    PATH = "/opt/apache-maven-3.9.6/bin/bin:$PATH"
-}
 stages {
-        stage("build"){
+        stage('clone the code') {
             steps {
-                sh 'mvn clean deploy -Dmaven.test.skip=true'
+                git branch: 'master', url: 'https://github.com/rajeshX0057/jenkin-repo.git'
             }
         }
     }
